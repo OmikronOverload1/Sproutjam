@@ -26,17 +26,17 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 688bcb2f028295745b44e779ace029f6, type: 2}
+  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
-  m_DefaultReflectionMode: 1
+  m_DefaultReflectionMode: 0
   m_DefaultReflectionResolution: 128
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
-  m_CustomReflection: {fileID: 8900000, guid: ff4303c475bdffc408a4dffb8566ba65, type: 3}
+  m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -458,9 +458,6 @@ MonoBehaviour:
   tilePrefab: {fileID: 801525953977607849, guid: 7a7fd6c59509aa74198145fda8eb152b, type: 3}
   pathTilePrefab: {fileID: 919132149155446097, guid: adf1d9b4749247c4994238aae158dd9b, type: 3}
   playerPrefab: {fileID: 7890041632278561517, guid: d813779b003e49d46a03dfca85ee892e, type: 3}
-  treePrefabs:
-  - {fileID: 919132149155446097, guid: c6b376d6e234b974c89773289e461d8e, type: 3}
-  - {fileID: 919132149155446097, guid: 958f879adf7c6684f9dbc33e681309cf, type: 3}
 --- !u!4 &2006506644
 Transform:
   m_ObjectHideFlags: 0
