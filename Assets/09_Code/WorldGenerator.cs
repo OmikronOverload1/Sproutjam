@@ -13,7 +13,7 @@ public class WorldGenerator : MonoBehaviour
     [SerializeField] private GameObject boundingBoxPrefab;
     [SerializeField] private GameObject[] treePrefabs;  // Array of tree prefabs
 
-    private int radius = 20;
+    private int radius = 50;
 
     void Start()
     {
@@ -24,7 +24,7 @@ public class WorldGenerator : MonoBehaviour
             for (int z = 0; z < radius; z++)
             {
                 GameObject tile = Instantiate(tilePrefab,
-                    new Vector3(x * 20f, 0, z * 20f), Quaternion.identity);
+                    new Vector3(x * 10f, 0, z * 10f), Quaternion.identity);
 
                 GeneratedTiles.Add(tile);
                 pathGenerator.AssignTopAndBottomTiles(z, tile);
@@ -81,7 +81,7 @@ public class WorldGenerator : MonoBehaviour
                 continue;
 
             // Randomly decide how many trees to place on this tile
-            int treeCount = Random.Range(2, 6);
+            int treeCount = Random.Range(2, 3);
 
             for (int i = 0; i < treeCount; i++)
             {
@@ -89,9 +89,9 @@ public class WorldGenerator : MonoBehaviour
                 GameObject treePrefab = treePrefabs[Random.Range(0, treePrefabs.Length)];
 
                 Vector3 randomOffset = new Vector3(
-                    Random.Range(-3f, 3f),
+                    Random.Range(-1f, 1f),
                     -0.4f,
-                    Random.Range(-3f, 3f)
+                    Random.Range(-1f, 1f)
                 );
                 Vector3 treePosition = tile.transform.position + randomOffset;
 
@@ -99,7 +99,7 @@ public class WorldGenerator : MonoBehaviour
                 GameObject tree = Instantiate(treePrefab, treePosition, Quaternion.identity);
 
                 // Randomize the tree's size
-                float randomScale = Random.Range(1f, 8.5f); // Adjust range as needed
+                float randomScale = Random.Range(4f, 8f); // Adjust range as needed
                 tree.transform.localScale = new Vector3(randomScale, randomScale, randomScale);
             }
         }
