@@ -10,8 +10,8 @@ public class WorldGenerator : MonoBehaviour
     [SerializeField] private GameObject pathTilePrefab; // Prefab for Path tiles
     [SerializeField] private GameObject playerPrefab;   // Prefab for the player#
     [SerializeField] private GameObject housePrefab;   // Prefab for the house
+    [SerializeField] private GameObject boundingBoxPrefab;
     [SerializeField] private GameObject[] treePrefabs;  // Array of tree prefabs
-    [SerializeField] private Sprite[] spritePrefabs;  // Array of sprite prefabs
 
     private int radius = 20;
 
@@ -42,6 +42,10 @@ public class WorldGenerator : MonoBehaviour
 
         // Add trees to tiles
         AddTreesToTiles(pathGenerator);
+
+        AddHouseOnLastTile(pathGenerator);
+
+        AddBoundingBox(pathGenerator);
     }
 
     private void ReplaceWithPathTile(GameObject originalTile)
@@ -101,11 +105,50 @@ public class WorldGenerator : MonoBehaviour
         }
     }
 
-        private void HouseOnLastTile(Path pathGenerator)
+    private void AddHouseOnLastTile(Path pathGenerator)
+    {
+        GameObject lastTile = pathGenerator.GetPath()[pathGenerator.GetPath().Count - 1];
+        Vector3 housePosition = lastTile.transform.position + new Vector3(0, 1, 0);
+        Instantiate(housePrefab, housePosition, Quaternion.identity);
+
+    }
+
+    private void AddBoundingBox(Path pathGenerator)
+    {
+        HashSet<Vector3> boundingBoxPositions = new HashSet<Vector3>();
+
+        foreach (var pathTile in pathGenerator.GetPath())
         {
-            GameObject lastTile = pathGenerator.GetPath()[pathGenerator.GetPath().Count - 1];
-            Vector3 housePosition = lastTile.transform.position + new Vector3(0, 1, 0);
-            Quaternion houseRotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
+            Vector3 pathTilePosition = pathTile.transform.position;
+
+            // Check adjacent positions (up, down, left, right)
+            AddBoundingBoxTileAtPosition(pathTilePosition + new Vector3(20f, 0, 0), boundingBoxPositions, pathGenerator); // Right
+            AddBoundingBoxTileAtPosition(pathTilePosition + new Vector3(-20f, 0, 0), boundingBoxPositions, pathGenerator); // Left
+            AddBoundingBoxTileAtPosition(pathTilePosition + new Vector3(0, 0, 20f), boundingBoxPositions, pathGenerator); // Up
+            AddBoundingBoxTileAtPosition(pathTilePosition + new Vector3(0, 0, -20f), boundingBoxPositions, pathGenerator); // Down
+        }
+    }
+
+    private void AddBoundingBoxTileAtPosition(Vector3 position, HashSet<Vector3> boundingBoxPositions, Path pathGenerator)
+    {
+        // Check if the position is already occupied by a bounding box
+        if (boundingBoxPositions.Contains(position))
+            return;
+
+        // Check if the position corresponds to a path tile
+        foreach (var pathTile in pathGenerator.GetPath())
+        {
+            if (Vector3.Distance(pathTile.transform.position, position) < 0.1f)
+            {
+                // Skip adding a bounding box above a path tile
+                return;
+            }
+        }
+
+        // Instantiate a bounding box tile at the position
+        Instantiate(boundingBoxPrefab, position + new Vector3(0, 1, 0), Quaternion.identity);
+        boundingBoxPositions.Add(position);
     }
 }
+
 
