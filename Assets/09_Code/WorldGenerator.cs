@@ -99,7 +99,7 @@ public class WorldGenerator : MonoBehaviour
                 GameObject tree = Instantiate(treePrefab, treePosition, Quaternion.identity);
 
                 // Randomize the tree's size
-                float randomScale = Random.Range(4f, 8f); // Adjust range as needed
+                float randomScale = Random.Range(3f, 7f); // Adjust range as needed
                 tree.transform.localScale = new Vector3(randomScale, randomScale, randomScale);
             }
         }
