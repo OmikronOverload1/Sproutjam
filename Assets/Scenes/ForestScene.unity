@@ -272,9 +272,10 @@ MonoBehaviour:
   tilePrefab: {fileID: 2167099985060954842, guid: ce1ba689906efbb41a16642f051d0c7c, type: 3}
   pathTilePrefab: {fileID: 1518483614706226433, guid: ddcc7a6aa60f9c6478e133f9b481e3f9, type: 3}
   playerPrefab: {fileID: 7890041632278561517, guid: d813779b003e49d46a03dfca85ee892e, type: 3}
+  housePrefab: {fileID: 0}
   treePrefabs:
-  - {fileID: 919132149155446097, guid: c6b376d6e234b974c89773289e461d8e, type: 3}
-  - {fileID: 919132149155446097, guid: 958f879adf7c6684f9dbc33e681309cf, type: 3}
+  - {fileID: 919132149155446097, guid: 8f37478ac7367a442934fed5deea476d, type: 3}
+  - {fileID: 919132149155446097, guid: 3a6693c12f13155409ada119b109b722, type: 3}
   - {fileID: 1807764857032643173, guid: c0710622fac13c04188f626ea1648931, type: 3}
   - {fileID: 1807764857032643173, guid: 283cba7f1a1ee0846a55f8293b7b4f00, type: 3}
   spritePrefabs: []
