@@ -75,18 +75,17 @@ public class WorldGenerator : MonoBehaviour
                 continue;
 
             // Randomly decide how many trees to place on this tile
-            int treeCount = Random.Range(2, 6); // Place 1 to 3 trees per tile
+            int treeCount = Random.Range(2, 6);
 
             for (int i = 0; i < treeCount; i++)
             {
                 // Randomly select a tree prefab
                 GameObject treePrefab = treePrefabs[Random.Range(0, treePrefabs.Length)];
 
-                // Randomize the position slightly within the tile
                 Vector3 randomOffset = new Vector3(
-                    Random.Range(-3f, 3f), // Adjust X offset
-                    1,                    // Keep Y above the tile
-                    Random.Range(-3f, 3f) // Adjust Z offset
+                    Random.Range(-3f, 3f), 
+                    -0.4f,                    
+                    Random.Range(-3f, 3f) 
                 );
                 Vector3 treePosition = tile.transform.position + randomOffset;
 
