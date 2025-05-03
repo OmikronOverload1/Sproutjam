@@ -111,6 +111,7 @@ public class Path
 
     }
 
+
     private void MoveDown(ref GameObject currentTile)
     {
         if (!path.Contains(currentTile)) // Check if the tile is already in the path
@@ -150,6 +151,8 @@ public class Path
         currentTilesIndex--;
         currentTile = WorldGenerator.GeneratedTiles[currentTilesIndex];
     }
+
+
 
 }
 

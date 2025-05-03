@@ -10,6 +10,7 @@ public class WorldGenerator : MonoBehaviour
     [SerializeField] private GameObject pathTilePrefab; // Prefab for Path tiles
     [SerializeField] private GameObject playerPrefab;   // Prefab for the player
     [SerializeField] private GameObject[] treePrefabs;  // Array of tree prefabs
+    [SerializeField] private Sprite[] spritePrefabs;  // Array of sprite prefabs
 
     private int radius = 20;
 
@@ -83,9 +84,9 @@ public class WorldGenerator : MonoBehaviour
                 GameObject treePrefab = treePrefabs[Random.Range(0, treePrefabs.Length)];
 
                 Vector3 randomOffset = new Vector3(
-                    Random.Range(-3f, 3f), 
-                    -0.4f,                    
-                    Random.Range(-3f, 3f) 
+                    Random.Range(-3f, 3f),
+                    -0.4f,
+                    Random.Range(-3f, 3f)
                 );
                 Vector3 treePosition = tile.transform.position + randomOffset;
 
@@ -98,4 +99,36 @@ public class WorldGenerator : MonoBehaviour
             }
         }
     }
+    
+    /*
+    private void AddSpriteToForest(Path pathGenerator)
+    {
+        foreach (var tile in GeneratedTiles)
+        {
+            // Skip tiles that are part of the path
+            if (pathGenerator.GetPath().Contains(tile))
+                continue;
+            // Randomly decide how many trees to place on this tile
+            int spriteCount = Random.Range(2, 6);
+            for (int i = 0; i < spriteCount; i++)
+            {
+                // Randomly select a sprite prefab
+                Sprite spritePrefab = spritePrefabs[Random.Range(0, spritePrefabs.Length)];
+
+                Vector3 randomOffset = new Vector3(
+                    Random.Range(1f, 3f),
+                    -0.1f,
+                    Random.Range(1f, 3f)
+                );
+                Vector2 spritePosition = tile.transform.position + randomOffset;
+                // Instantiate the tree
+                Sprite sprite = Instantiate(spritePrefab, spritePosition, Quaternion.identity);
+                // Randomize the sprite's size
+                float randomScale = Random.Range(1f, 3.5f);
+                sprite = new Vector3(randomScale, randomScale, randomScale);
+            }
+        }
+    }
+        */
 }
+
