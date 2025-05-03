@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2185734303413255087}
   - component: {fileID: 113036411553900708}
   - component: {fileID: 4752868408761796464}
+  - component: {fileID: 429362163417044022}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -137,6 +138,14 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!124 &429362163417044022
+Behaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2492843008955606902}
+  m_Enabled: 1
 --- !u!1 &3164113817746341850
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,7 +203,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8938143006893490034}
   - component: {fileID: 1519278588905713200}
-  - component: {fileID: 2948006056903296511}
+  - component: {fileID: 55888139164134866}
+  - component: {fileID: 5571580795113469774}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -231,10 +241,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 924a0c2bbe9457b40ae4747ec38080f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 20
   Player: {fileID: 7993043978163984585}
---- !u!136 &2948006056903296511
-CapsuleCollider:
+--- !u!54 &55888139164134866
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7890041632278561517}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
+--- !u!65 &5571580795113469774
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -251,11 +288,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1.86
-  m_Direction: 1
-  m_Center: {x: 0, y: 1.32, z: 0}
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1.67, z: 1}
+  m_Center: {x: 0, y: 0.87, z: 0}
 --- !u!1001 &7074476580835632536
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -8,7 +8,8 @@ public class WorldGenerator : MonoBehaviour
 
     [SerializeField] private GameObject tilePrefab;
     [SerializeField] private GameObject pathTilePrefab; // Prefab for Path tiles
-    [SerializeField] private GameObject playerPrefab;   // Prefab for the player
+    [SerializeField] private GameObject playerPrefab;   // Prefab for the player#
+    [SerializeField] private GameObject housePrefab;   // Prefab for the house
     [SerializeField] private GameObject[] treePrefabs;  // Array of tree prefabs
     [SerializeField] private Sprite[] spritePrefabs;  // Array of sprite prefabs
 
@@ -99,36 +100,12 @@ public class WorldGenerator : MonoBehaviour
             }
         }
     }
-    
-    /*
-    private void AddSpriteToForest(Path pathGenerator)
-    {
-        foreach (var tile in GeneratedTiles)
-        {
-            // Skip tiles that are part of the path
-            if (pathGenerator.GetPath().Contains(tile))
-                continue;
-            // Randomly decide how many trees to place on this tile
-            int spriteCount = Random.Range(2, 6);
-            for (int i = 0; i < spriteCount; i++)
-            {
-                // Randomly select a sprite prefab
-                Sprite spritePrefab = spritePrefabs[Random.Range(0, spritePrefabs.Length)];
 
-                Vector3 randomOffset = new Vector3(
-                    Random.Range(1f, 3f),
-                    -0.1f,
-                    Random.Range(1f, 3f)
-                );
-                Vector2 spritePosition = tile.transform.position + randomOffset;
-                // Instantiate the tree
-                Sprite sprite = Instantiate(spritePrefab, spritePosition, Quaternion.identity);
-                // Randomize the sprite's size
-                float randomScale = Random.Range(1f, 3.5f);
-                sprite = new Vector3(randomScale, randomScale, randomScale);
-            }
-        }
+        private void HouseOnLastTile(Path pathGenerator)
+        {
+            GameObject lastTile = pathGenerator.GetPath()[pathGenerator.GetPath().Count - 1];
+            Vector3 housePosition = lastTile.transform.position + new Vector3(0, 1, 0);
+            Quaternion houseRotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
     }
-        */
 }
 
