@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: cc74c34a7bcde6f4f907f7ba27863527, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 4e39560208212164e8bd77b0f72e3d0d, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -147,14 +147,14 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.3207547, g: 0.040850837, b: 0.040850837, a: 1}
   m_Intensity: 2
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -187,11 +187,11 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_ColorTemperature: 5000
+  m_ColorTemperature: 1900
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
@@ -272,12 +272,13 @@ MonoBehaviour:
   tilePrefab: {fileID: 2167099985060954842, guid: ce1ba689906efbb41a16642f051d0c7c, type: 3}
   pathTilePrefab: {fileID: 1518483614706226433, guid: ddcc7a6aa60f9c6478e133f9b481e3f9, type: 3}
   playerPrefab: {fileID: 7890041632278561517, guid: d813779b003e49d46a03dfca85ee892e, type: 3}
+  housePrefab: {fileID: 919132149155446097, guid: 550676a1f10110e4eb1d1e07a9ec0f63, type: 3}
+  boundingBoxPrefab: {fileID: 7813587870803400531, guid: b02d521c0123a6c4f9c892aaf4ee7bbd, type: 3}
   treePrefabs:
   - {fileID: 919132149155446097, guid: c6b376d6e234b974c89773289e461d8e, type: 3}
   - {fileID: 919132149155446097, guid: 958f879adf7c6684f9dbc33e681309cf, type: 3}
   - {fileID: 1807764857032643173, guid: c0710622fac13c04188f626ea1648931, type: 3}
   - {fileID: 1807764857032643173, guid: 283cba7f1a1ee0846a55f8293b7b4f00, type: 3}
-  spritePrefabs: []
 --- !u!4 &2006506644
 Transform:
   m_ObjectHideFlags: 0
