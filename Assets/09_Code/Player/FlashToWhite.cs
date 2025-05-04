@@ -1,5 +1,8 @@
 using System.Collections;
+using UnityEditor.SearchService;
+using UnityEditorInternal;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FlashToWhite : MonoBehaviour
 {
@@ -60,6 +63,7 @@ public class FlashToWhite : MonoBehaviour
             {
                 // Trigger the flash effect and regenerate the world
                 TriggerFlash();
+                RestartScene();
             }
         }
     }
@@ -89,7 +93,7 @@ public class FlashToWhite : MonoBehaviour
         elapsedTime = 0f;
 
         // Regenerate the world during the flash
-        worldGenerator.RegenerateWorld();
+        
 
         // Fade out to the original background color
         while (elapsedTime < flashDuration / 2)
@@ -101,5 +105,10 @@ public class FlashToWhite : MonoBehaviour
         }
 
         isFlashing = false;
+    }
+
+    private void RestartScene()
+    {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

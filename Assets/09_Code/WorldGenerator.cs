@@ -14,6 +14,7 @@ public class WorldGenerator : MonoBehaviour
     [SerializeField] private GameObject boundingBoxPrefab; // Prefab for the bounding box
     [SerializeField] private GameObject[] treePrefabs;  // Array of tree prefabs
     [SerializeField] private GameObject playerInstance; // Track the instantiated player
+    [SerializeField] private GameObject letter; // Prefabs for the letters
 
     private int radius = 50;
 
@@ -22,40 +23,7 @@ public class WorldGenerator : MonoBehaviour
         GenerateWorld();
     }
 
-
-    public void RegenerateWorld()
-    {
-        Debug.Log("RegenerateWorld called");
-
-        // Destroy the player instance
-        if (playerInstance != null)
-        {
-            Debug.Log($"Destroying player instance: {playerInstance.name}");
-            Destroy(playerInstance);
-            playerInstance = null;
-        }
-
-        // Clear existing tiles
-        foreach (var tile in GeneratedTiles)
-        {
-            Destroy(tile);
-        }
-        GeneratedTiles.Clear();
-
-        // Clear existing trees
-        treeInstances.RemoveAll(tree => tree == null); // Remove null references
-        foreach (var tree in treeInstances)
-        {
-            Debug.Log($"Destroying tree: {tree.name}");
-            Destroy(tree);
-        }
-        treeInstances.Clear();
-
-        // Recreate the world
-        GenerateWorld();
-    }
-
-    private void GenerateWorld()
+    public void GenerateWorld()
     {
         Path pathGenerator = new Path(radius);
 
@@ -102,12 +70,6 @@ public class WorldGenerator : MonoBehaviour
 
     private void InstantiatePlayerOnStartTile(Path pathGenerator)
     {
-        // Destroy the previous player instance if it exists
-        if (playerInstance != null)
-        {
-            Debug.Log($"Destroying previous player instance: {playerInstance.name}");
-            Destroy(playerInstance);
-        }
 
         GameObject startTile = pathGenerator.GetPath()[0]; // Get the start tile
         GameObject nextTile = pathGenerator.GetPath()[1];  // Get the next tile to determine direction
@@ -124,8 +86,18 @@ public class WorldGenerator : MonoBehaviour
 
     private void AddTreesToTiles(Path pathGenerator)
     {
+        // Remove destroyed tiles from the list
+        GeneratedTiles.RemoveAll(tile => tile == null);
+
         foreach (var tile in GeneratedTiles)
         {
+            // Skip null tiles (safety check)
+            if (tile == null)
+            {
+                Debug.LogWarning("Skipping null tile in GeneratedTiles.");
+                continue;
+            }
+                
             // Skip tiles that are part of the path
             if (pathGenerator.GetPath().Contains(tile))
                 continue;
