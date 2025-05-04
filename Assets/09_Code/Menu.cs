@@ -16,7 +16,8 @@ public class Menu : MonoBehaviour
     // Called when we click the "Yes" button in New Game
     public void Play()
     {
-        SceneManager.LoadScene("ForestScene", LoadSceneMode.Additive);
+        SceneManager.LoadScene("ForestScene");
+
     }
 
 
