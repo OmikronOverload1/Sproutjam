@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 public class LoadScripts : MonoBehaviour
 {
