@@ -52,6 +52,14 @@ PrefabInstance:
       propertyPath: playerInstance
       value: 
       objectReference: {fileID: 7890041632278561517, guid: d813779b003e49d46a03dfca85ee892e, type: 3}
+    - target: {fileID: 3193464562100557520, guid: f6e796bef6658bb40b9d0c3c28d270ba, type: 3}
+      propertyPath: 'treePrefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 919132149155446097, guid: d44180de2a580a540b5ef0b7e2369ff8, type: 3}
+    - target: {fileID: 3193464562100557520, guid: f6e796bef6658bb40b9d0c3c28d270ba, type: 3}
+      propertyPath: 'treePrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 919132149155446097, guid: 81b32a417c2c95840bfcd2f8ac4d4ec5, type: 3}
     - target: {fileID: 6341020024248960685, guid: f6e796bef6658bb40b9d0c3c28d270ba, type: 3}
       propertyPath: m_Name
       value: WorldGenerator Variant
