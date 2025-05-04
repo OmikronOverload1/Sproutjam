@@ -49,6 +49,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3193464562100557520, guid: f6e796bef6658bb40b9d0c3c28d270ba, type: 3}
+      propertyPath: pathTilePrefab
+      value: 
+      objectReference: {fileID: 2167099985060954842, guid: ce1ba689906efbb41a16642f051d0c7c, type: 3}
+    - target: {fileID: 3193464562100557520, guid: f6e796bef6658bb40b9d0c3c28d270ba, type: 3}
       propertyPath: playerInstance
       value: 
       objectReference: {fileID: 7890041632278561517, guid: d813779b003e49d46a03dfca85ee892e, type: 3}
