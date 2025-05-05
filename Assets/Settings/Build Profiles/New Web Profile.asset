@@ -10,18 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 15003, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: New Windows Profile
+  m_Name: New Web Profile
   m_EditorClassIdentifier: 
   m_AssetVersion: 1
-  m_BuildTarget: 19
-  m_Subtarget: 2
-  m_PlatformId: 4e3c793746204150860bf175a9a41a05
+  m_BuildTarget: 20
+  m_Subtarget: 0
+  m_PlatformId: 84a3bb9e7420477f885e98145999eb20
   m_PlatformBuildProfile:
-    rid: 5010208506999996475
+    rid: 8518181672736260096
   m_OverrideGlobalSceneList: 0
   m_Scenes: []
-  m_ScriptingDefines:
-  - 
+  m_ScriptingDefines: []
   m_PlayerSettingsYaml:
     m_Settings:
     - line: '| PlayerSettings:'
@@ -559,7 +558,8 @@ MonoBehaviour:
     - line: '|   openGLRequireES31: 0'
     - line: '|   openGLRequireES31AEP: 0'
     - line: '|   openGLRequireES32: 0'
-    - line: '|   m_TemplateCustomTags: {}'
+    - line: '|   m_TemplateCustomTags:'
+    - line: '|     PRODUCT_DESCRIPTION: '
     - line: '|   mobileMTRendering:'
     - line: '|     Android: 1'
     - line: '|     iPhone: 1'
@@ -577,6 +577,9 @@ MonoBehaviour:
     - line: '|   - serializedVersion: 3'
     - line: '|     m_BuildTarget: Android'
     - line: '|     m_Formats: 03000000'
+    - line: '|   - serializedVersion: 3'
+    - line: '|     m_BuildTarget: WebGL'
+    - line: '|     m_Formats: 05000000'
     - line: '|   playModeTestRunnerEnabled: 0'
     - line: '|   runPlayModeTestAsEditModeTest: 0'
     - line: '|   actionOnDotNetUnhandledException: 1'
@@ -822,10 +825,10 @@ MonoBehaviour:
     - line: '|   webGLDebugSymbols: 0'
     - line: '|   webGLEmscriptenArgs: '
     - line: '|   webGLModulesDirectory: '
-    - line: '|   webGLTemplate: APPLICATION:Default'
+    - line: '|   webGLTemplate: APPLICATION:PWA'
     - line: '|   webGLAnalyzeBuildSize: 0'
     - line: '|   webGLUseEmbeddedResources: 0'
-    - line: '|   webGLCompressionFormat: 0'
+    - line: '|   webGLCompressionFormat: 1'
     - line: '|   webGLWasmArithmeticExceptions: 0'
     - line: '|   webGLLinkerTarget: 1'
     - line: '|   webGLThreadsSupport: 0'
@@ -960,8 +963,8 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 5010208506999996475
-      type: {class: WindowsPlatformSettings, ns: UnityEditor.WindowsStandalone, asm: UnityEditor.WindowsStandalone.Extensions}
+    - rid: 8518181672736260096
+      type: {class: WebGLPlatformSettings, ns: UnityEditor.WebGL, asm: UnityEditor.WebGL.Extensions}
       data:
         m_Development: 0
         m_ConnectProfiler: 0
@@ -972,11 +975,9 @@ MonoBehaviour:
         m_ExplicitNullChecks: 0
         m_ExplicitDivideByZeroChecks: 0
         m_ExplicitArrayBoundsChecks: 0
-        m_CompressionType: 0
+        m_CompressionType: -1
         m_InstallInBuildFolder: 0
-        m_WindowsBuildAndRunDeployTarget: 0
-        m_Architecture: 0
-        m_CreateSolution: 0
-        m_CopyPDBFiles: 0
-        m_WindowsDevicePortalAddress: 
-        m_WindowsDevicePortalUsername: 
+        m_CodeOptimization: 0
+        m_WebGLClientBrowserPath: C:/Users/fadoe/AppData/Local/Programs/Opera GX/opera.exe
+        m_WebGLClientBrowserType: 5
+        m_WebGLTextureSubtarget: 0

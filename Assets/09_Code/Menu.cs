@@ -9,7 +9,6 @@ public class Menu : MonoBehaviour
 {
     [Header("Levels")]
     public string _newGameLevel;
-    private string levelToLoad;
     [SerializeField] private GameObject NoSaveGame = null;
 
     // Called when we click the "Yes" button in New Game

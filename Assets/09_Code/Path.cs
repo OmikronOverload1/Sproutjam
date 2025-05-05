@@ -29,7 +29,7 @@ public class Path
 
     public void AssignTopAndBottomTiles(int z, GameObject tile)
     {
-        if (z == 1) // Adjusted to start from the second row
+        if (z == 2) // Adjusted to start from the second row
             topTiles.Add(tile);
         if (z == radius - 2) // Adjusted to end at the second-to-last row
             bottomTIles.Add(tile);

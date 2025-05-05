@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,6 +14,8 @@ public class WorldGenerator : MonoBehaviour
     [SerializeField] private GameObject[] treePrefabs;  // Array of tree prefabs
     [SerializeField] private GameObject playerInstance; // Track the instantiated player
     [SerializeField] private GameObject letter; // Prefabs for the letters
+    [SerializeField] private GameObject ravenTree; // Prefabs for the raven tree
+    [SerializeField] private GameObject deadFlowerPrefab; // Prefab for the flower
 
     private int radius = 50;
 
@@ -65,7 +66,23 @@ public class WorldGenerator : MonoBehaviour
         Quaternion rotation = originalTile.transform.rotation;
 
         Destroy(originalTile);
-        Instantiate(pathTilePrefab, position, rotation);
+        GameObject pathTile = Instantiate(pathTilePrefab, position, rotation);
+
+        // 30% chance to spawn a raven tree on the path tile
+        if (ravenTree != null && Random.value <= 0.3f) // Random.value generates a number between 0 and 1
+        {
+            Vector3 ravenTreePosition = position + new Vector3(0, 0, 0); // Adjust Y position if needed
+            Instantiate(ravenTree, ravenTreePosition, Quaternion.identity);
+            Debug.Log("Raven tree spawned on path tile.");
+        }
+
+        // 50% chance to spawn a flower on the path tile
+        if (deadFlowerPrefab != null && Random.value <= 0.5f) // Adjust the probability as needed
+        {
+            Vector3 flowerPosition = position + new Vector3(0, 0, 0); // Slightly above the ground
+            Instantiate(deadFlowerPrefab, flowerPosition, Quaternion.identity);
+            Debug.Log("Dead Flower spawned on path tile.");
+        }
     }
 
     private void InstantiatePlayerOnStartTile(Path pathGenerator)
